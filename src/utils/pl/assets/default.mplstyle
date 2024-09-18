@@ -1,0 +1,23 @@
+figure.dpi : 300
+font.family : "Arial"
+mathtext.default : "default"
+xtick.labelsize : 7
+ytick.labelsize : 7
+axes.labelsize : 9
+axes.titlesize : 9
+axes.facecolor : "white"
+xtick.direction : "out"
+ytick.direction : "out"
+image.cmap : "viridis"
+lines.linewidth : 0.75
+axes.spines.right : False
+axes.spines.top : False
+legend.borderaxespad : 0.25
+legend.borderpad : 0.25
+legend.fontsize : 7
+legend.title_fontsize : 7
+legend.handleheight : 0.5
+legend.handlelength : 1.0
+legend.markerscale : 0.5
+patch.linewidth : 0.75
+axes.prop_cycle : cycler("color", ["#F04437", "#E81F64", "#903E97", "#65499E", "#4356A5", "#478FCC", "#34A4DD", "#00BCD4", "#009889", "#4BB04F", "#8BC34C", "#CCDA3A", "#FCED3A", "#FFC10E", "#F8991D", "#F1592C", "#7A5649", "#9F9E9E", "#607F8C",])

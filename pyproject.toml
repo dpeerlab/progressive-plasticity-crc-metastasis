@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=58.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "my_project"
+version = "1.0.0"
+description = "My project description"
+authors = ["Andrew Moorman <moormana@mskcc.org>"]
+license = "MIT"
+
+keywords = []
+classifiers = []
+
+requires-python = ">=3.8"
+dependencies = [
+    "scanpy",
+    "matplotlib",
+    "pandas",
+    "numpy",
+    "seaborn",
+    "openpyxl",
+    "scipy",
+    "scikit-misc",
+    "PhenoGraph",
+    "magic-impute",
+    "python-ternary",
+]

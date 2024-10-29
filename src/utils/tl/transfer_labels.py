@@ -5,7 +5,16 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 from phenograph.classify import random_walk_probabilities
 from sklearn.linear_model import LinearRegression
+
+
+# Deal with font/plotting bugs introduced by Harmony
+from matplotlib import pyplot as plt
+import seaborn as sns
+font = plt.rcParams['font.family']
+backend = plt.rcParams['backend']
 import harmony.core
+sns.set(font=font)
+plt.rcParams['backend'] = backend
 
 
 # Get affinity matrix for subset of AnnData (not augmented)

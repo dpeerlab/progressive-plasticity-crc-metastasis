@@ -1,0 +1,22 @@
+{
+    "Absorptive Intestine": "Abs",
+    "EMT": "EMT",
+    "Injury Repair": "Inj",
+    "Osteoblast": "Osteo",
+    "Squamous": "Squa",
+    "Neuroendocrine": "Neuro",
+    "Endoderm Development": "Endo",
+    "Tumor ISC-like": "ISC",
+    "Secretory Intestine": "Sec",
+    "Intestine": "Int",
+    "Metastasis": "Metastasis",
+    "Primary Tumor": "Primary",
+    "ISC": "ISC",
+    "Secretory Precursor": "Pre-Sec.",
+    "Absorptive Precursor": "Pre-Abs.",
+    "Goblet": "Goblet",
+    "Enterocytes": "Enterocytes",
+    "Enterocytes (BEST4+)": "BEST4+",
+    "Tuft": "Tuft",
+    "Enteroendocrine": "Enteroendocrine"
+}

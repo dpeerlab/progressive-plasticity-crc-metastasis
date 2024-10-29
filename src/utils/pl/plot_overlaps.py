@@ -56,10 +56,10 @@ def plot_overlaps(
 
 
 def plot_ratios(
-        ratios: pd.Series,
-        cmap,
-        ax,
-        row_colors: Optional[pd.Series] = None,
+    ratios: pd.Series,
+    cmap,
+    ax,
+    row_colors: Optional[pd.Series] = None,
 ):
     # Cap infinity and negative infinity values
     mask = ratios.ne(0) & ratios.ne(np.inf)
@@ -95,6 +95,51 @@ def plot_ratios(
 
     # Add row and column color annotations
     for i, color in enumerate(row_colors.loc[log_ratios.index]):
+        kwargs = dict(
+            fill=True, facecolor=color, lw=1.5, edgecolor='w',
+            clip_on=False, zorder=0
+        )
+        row_color = plt.Rectangle(
+            (-0.08, i-0.5), 
+            0.06, 1, transform=ax.get_yaxis_transform(), **kwargs
+        )
+        ax.add_patch(row_color)
+
+
+def plot_fractions(
+    fractions: pd.DataFrame,
+    cmap: dict,
+    ax,
+    row_colors: pd.Series,
+):
+    # Plot cumulative fractions
+    lefts = np.zeros(fractions.shape[0])
+    yvals = np.arange(fractions.shape[0])
+    for col in fractions.columns:
+        ax.barh(
+            y=yvals,
+            width=fractions[col],
+            height=0.75,
+            left=lefts,
+            color=cmap[col],
+            lw=0.,
+            edgecolor='w',
+        )
+        lefts += fractions[col]
+        if 'Osteoblast' in col:
+            styles = dict(lw=0.5, color='k', clip_on=False)
+            for x, y in zip(lefts, yvals):
+                ax.plot([x]*2, [y-0.5, y+0.5], **styles)
+
+    # Formatting
+    ax.spines[['top', 'left', 'right']].set_visible(False)
+    ax.set_ylim(-1.25, fractions.shape[0] + 0.25)
+    ax.set_yticks(yvals, fractions.index)
+    ax.tick_params(axis='y', length=0, labelsize=6, pad=6)
+    ax.tick_params(axis='x', direction='in', labelsize=6)
+
+    # Add row and column color annotations
+    for i, color in enumerate(row_colors.loc[fractions.index]):
         kwargs = dict(
             fill=True, facecolor=color, lw=1.5, edgecolor='w',
             clip_on=False, zorder=0

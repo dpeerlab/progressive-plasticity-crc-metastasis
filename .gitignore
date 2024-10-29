@@ -163,5 +163,4 @@ cython_debug/
 
 data*
 media*
-notebooks/check_anndatas.ipynb
-notebooks/reviewer_response_2.ipynb
+notebooks/_*.ipynb

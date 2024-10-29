@@ -158,24 +158,28 @@ def plot_pseudotime_trends(
 def plot_module_progressions(
     adata: sc.AnnData,
     named_colors: dict,
+    features: List = None,
+    peaks: List = None,
+    figsize: Tuple = (2, 1.2),
 ):
     # Setup figure
     fig, axes = plt.subplots(
         2,1,
-        figsize=(2, 1.2),
+        figsize=figsize,
         gridspec_kw=dict(height_ratios=[1, 0.33], hspace=0.33/(1.33/2)),
     )
 
     # Standard columns to plot
-    features = [
-        'Module Absorptive Intestine Score',
-        'Module Secretory Intestine Score',
-        'Module Intestine Score',
-        'Module Tumor ISC-like Score',
-        'Module Endoderm Development Score',
-        f"Module {adata.uns['DC Terminal State']} Score",
-        'Fetal, Conserved'
-    ]
+    if features is None:
+        features = [
+            'Module Absorptive Intestine Score',
+            'Module Secretory Intestine Score',
+            'Module Intestine Score',
+            'Module Tumor ISC-like Score',
+            'Module Endoderm Development Score',
+            f"Module {adata.uns['DC Terminal State']} Score",
+            'Fetal, Conserved'
+        ]
 
     # Plot DC trends for all modules
     ax = axes[0]
@@ -183,7 +187,8 @@ def plot_module_progressions(
     plot_pseudotime_trends(adata, ps_column, features, ax, named_colors)
 
     # Mark positions in fetal and terminal states where trend crosses 0.8
-    for feature in features[-2:]:
+    if peaks is None: peaks = features[-2:]
+    for feature in peaks:
         # Calculate trends
         trend, _ = get_gam_trend(adata.obs[ps_column], adata.obs[feature])
         trend -= trend.min()

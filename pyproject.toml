@@ -25,4 +25,6 @@ dependencies = [
     "PhenoGraph",
     "magic-impute",
     "python-ternary",
+    "colorsys",
+    "boto3",
 ]

@@ -1,11 +1,17 @@
 import scipy as sp
 import numpy as np
+import pandas as pd
 import ternary
 from ternary.helpers import (
     project_point,
     planar_to_coordinates,
     simplex_iterator
 )
+from matplotlib.colors import cnames, to_rgb
+from matplotlib import collections, lines, pyplot as plt
+import seaborn as sns
+import colorsys
+from typing import List
 
 
 def ternary_kde(
@@ -92,3 +98,81 @@ def plot_ternary(
         boundary_width=1,
         pad=2,
     )
+
+
+def lighten_color(color, amount: float):
+    # Lookup color in matplotlib named colors
+    try:
+        color = cnames[color]
+    except:
+        pass
+    h, l, s = colorsys.rgb_to_hls(*to_rgb(color))
+    color = colorsys.hls_to_rgb(h, 1 - amount * (1 - l), s)
+    return color
+
+
+def patch_violinplot(ax):
+    children = ax.get_children()
+    i = 0
+    for n in range(0, len(children), 4):
+        art = children[n: n+4]
+        is_violin = len(art) == 4
+        is_violin &= isinstance(art[0], collections.PolyCollection)
+        is_violin &= all([isinstance(a, lines.Line2D) for a in art[1:]])
+        if is_violin:
+            violin, q1, q2, q3 = art
+            c = violin.get_facecolor()
+            if i%2==1: c = lighten_color(c, 0.5)
+            violin.set_facecolor(c)
+            violin.set_edgecolor(c)
+            violin.set_linewidth(0.1)
+            q2.set_linestyle('solid')
+            q2.set_linewidth(0.5)
+            q2.set_solid_capstyle('butt')
+            for q in [q1, q3]:
+                q.set_alpha(0)
+            i += 1
+
+
+def plot_kde(
+    data: pd.DataFrame,
+    row: str,
+    row_order: List,
+    **kwargs,
+):
+    # Update with default styles
+    styles = dict(
+        cut=0,
+        common_norm=False, 
+        density_norm='width',
+        width=0.75,
+        gap=0,
+        split=True,
+        fill=True,
+        linewidth=0.5,
+        legend=False,
+        inner='quart',
+    )
+    kwargs.update(styles)
+
+    # Plot KDEs
+    grid = sns.FacetGrid(
+        data,
+        row=row,
+        row_order=row_order,
+        height=1.5,
+        aspect=1.5,
+        sharex=False,
+        gridspec_kws=dict(hspace=0.5),
+        despine=False,
+    )
+    fig = grid.map_dataframe(sns.violinplot, **kwargs)
+
+    # Formatting
+    for ax in fig.axes.flat:
+        patch_violinplot(ax)
+        ax.set_title('')
+        ax.set_xlim(0, 1)
+        ax.yaxis.set_visible(False)
+        ax.spines[['top', 'left', 'right']].set_visible(False)
+        ax.set_xlabel(kwargs['x'])

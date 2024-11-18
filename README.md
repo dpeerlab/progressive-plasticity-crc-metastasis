@@ -23,6 +23,23 @@ The processed H5AD data for reproducing this analysis is hosted on AWS S3 at:
 ```
 s3://dp-laba-data-public/progressive-plasticity-crc-metastasis
 ```
+You can download directly using the following links:
+```
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/All.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Epithelial.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG146_Organoids.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG146_Tumor.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG146_Tumor_Mapping_Reference.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG146_shPROX1_Knockdown.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG150_Tumor.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG182_Tumor.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/KG183_Tumor.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Non-Tumor_Epithelial.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Tumor.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Untreated_Epithelial.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Wang_etal_Tumor.h5ad
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Wang_etal_s1231_Tumor.h5ad
+```
 
 ### Installation
 

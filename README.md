@@ -21,7 +21,7 @@ The study investigates the progressive plasticity of cellular states during the 
 ### Data Access
 The processed H5AD data for reproducing this analysis is hosted on AWS S3 at:
 ```
-s3://dp-laba-data-public/progressive-plasticity-crc-metastasis
+s3://dp-lab-data-public/progressive-plasticity-crc-metastasis
 ```
 You can download directly using the following links:
 ```

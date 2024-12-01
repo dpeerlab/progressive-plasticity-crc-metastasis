@@ -23,7 +23,7 @@ The processed H5AD data for reproducing this analysis is hosted on AWS S3 at:
 ```
 s3://dp-lab-data-public/progressive-plasticity-crc-metastasis
 ```
-You can download directly using the following links:
+You can download H5ADs directly using the following links:
 ```
 https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/All.h5ad
 https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Epithelial.h5ad
@@ -39,6 +39,10 @@ https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc
 https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Untreated_Epithelial.h5ad
 https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Wang_etal_Tumor.h5ad
 https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/h5ads/Wang_etal_s1231_Tumor.h5ad
+```
+Additionally, all data is available vis a single download link in .tar.gz format:
+```
+https://dp-lab-data-public.s3.us-east-1.amazonaws.com/progressive-plasticity-crc-metastasis/data.tar.gz
 ```
 
 ### Installation
